@@ -43,7 +43,7 @@ function drawpH(){
     line(i, imgHeight + 20, i, imgHeight + 110);
   }
 
-  console.log(float(pHs[currentImg]));
+  //console.log(float(pHs[currentImg]));
 }
 
 function drawCanopy(){
