@@ -1,9 +1,21 @@
 const imgWidth = 640;
 const imgHeight = 480;
+let len;
+let imgs = []
+
+function preload(){
+  len = loadStrings('/len.txt');
+}
 
 function setup() {
   createCanvas(imgWidth, 940);
-  imgs = loadImage('pic/0.jpg');
+  let fileName = ''
+  for(i = 0; i < len[0].length; i ++){
+    fileName = 'pic/' + str(i) + '.jpg';
+    temp = loadImage(fileName);
+    imgs.push(temp);
+  }
+  console.log(fileName);
 }
 
 function drawpH(){
@@ -53,7 +65,7 @@ function drawWater(){
 
 function draw() {
   background('pink');
-  image(imgs, 0, 0);
+  image(imgs[len[0].length -1], 0, 0);
   drawpH();
   drawCanopy();
   drawWater();
