@@ -3,9 +3,15 @@ const imgHeight = 480;
 let len;
 let imgs = [];
 let currentImg = 0;
+let pHs = [];
+let canopyTemps = [];
+let waterTemps = [];
 
 function preload(){
   len = loadStrings('/len.txt');
+  pHs = loadStrings('/pH.txt');
+  canopyTemps = loadStrings('canopyTemp.txt');
+  waterTemps = loadStrings('waterTemp.txt');
 }
 
 function setup() {
@@ -36,6 +42,8 @@ function drawpH(){
   for ( i = 20; i < imgWidth; i = i + 40){
     line(i, imgHeight + 20, i, imgHeight + 110);
   }
+
+  console.log(float(pHs[currentImg]));
 }
 
 function drawCanopy(){
