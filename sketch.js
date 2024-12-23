@@ -3,7 +3,7 @@ const imgHeight = 480;
 
 function setup() {
   createCanvas(imgWidth, 940);
-  imgs = loadImage('pic/test.jpg');
+  imgs = loadImage('pic/0.jpg');
 }
 
 function drawpH(){
