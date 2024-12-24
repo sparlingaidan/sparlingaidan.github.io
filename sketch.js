@@ -32,7 +32,7 @@ function drawpH(){
   fill('white');
   stroke('blue');
   strokeWeight(2);
-  text("6.2", 0, imgHeight + 25);
+  text("6.2", 0, 505);
   text("5.8", 0, imgHeight + 65);
   text("5.3", 0, imgHeight + 115);
   text("pH", (imgWidth/2) - 10, imgHeight + 15);
@@ -43,7 +43,12 @@ function drawpH(){
     line(i, imgHeight + 20, i, imgHeight + 110);
   }
 
-  //console.log(float(pHs[currentImg]));
+  for (i = 0; i < 16; i ++){
+    circle(620 + (i * -40), 500 - (6.2 - float(pHs[currentImg - i])) * -100, 10);
+    if(currentImg == 0){
+      continue;
+    }
+  }
 }
 
 function drawCanopy(){
@@ -57,6 +62,13 @@ function drawCanopy(){
   for ( i = 20; i < imgWidth; i = i + 40){
     line(i, imgHeight + 130, i, imgHeight + 220);
   }
+
+  for (i = 0; i < 16; i ++){
+    circle(620 + (i * -40), 610 - (95 - float(canopyTemps[currentImg - i])) * -2, 10);
+    if(currentImg == 0){
+      continue;
+    }
+  }
 }
 
 function drawWater(){
@@ -69,6 +81,12 @@ function drawWater(){
   }
   for ( i = 20; i < imgWidth; i = i + 40){
     line(i, imgHeight + 240, i, imgHeight + 330);
+  }
+  for (i = 0; i < 16; i ++){
+    circle(620 + (i * -40), 720 - (73 - float(waterTemps[currentImg - i])) * -9, 10);
+    if(currentImg == 0){
+      continue;
+    }
   }
 }
 
