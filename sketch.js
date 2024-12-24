@@ -12,7 +12,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(imgWidth, 480);
+  createCanvas(imgWidth, 580);
   let fileName = ''
   for(i = 0; i < len[0].length; i ++){
     fileName = 'pic/' + str(i) + '.jpg';
@@ -37,6 +37,12 @@ function draw() {
   image(imgs[currentImg], 0, 0);
   drawPlay();
   updateAll();
+}
+
+function touchEnded() {
+  if((mouseX > 570) & (mouseY < 50)){
+    currentImg = 0;
+  }
 }
 
 function mouseClicked() {
