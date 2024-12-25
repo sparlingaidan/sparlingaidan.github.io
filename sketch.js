@@ -20,6 +20,7 @@ function setup() {
     imgs.push(temp);
   }
   currentImg = len[0].length -1;
+  console.log(fileName);
 }
 
 
@@ -55,7 +56,7 @@ function updateAll(){
   if (frameCount % 25 == 0){
     currentImg ++;
   }
-  if (currentImg >= (4) ){
+  if (currentImg >= len[0].length ){
     currentImg = len[0].length -1;
   }
 }
