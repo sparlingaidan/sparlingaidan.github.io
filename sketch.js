@@ -1,5 +1,5 @@
-const imgWidth = 640;
-const imgHeight = 480;
+const imgWidth = 3280;
+const imgHeight = 2464;
 let len;
 let imgs = [];
 let currentImg = 0;
@@ -12,7 +12,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(imgWidth, 580);
+  createCanvas(imgWidth, imgHeight);
   let fileName = ''
   for(i = 0; i < len[0].length; i ++){
     fileName = 'pic/' + str(i) + '.jpg';
