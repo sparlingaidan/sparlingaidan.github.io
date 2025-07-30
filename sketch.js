@@ -39,7 +39,7 @@ async function Timelapse(duration) {
   while (start <= Latest) {
     img.src = "./pic/" + start.toString() + ".jpg";
     console.log("showing:", img.src);
-    await wait(100);
+    await wait(200);
     start += 1;
   }
 }
