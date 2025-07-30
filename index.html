@@ -7,13 +7,44 @@
     #imgdiv {
       display: flex;
       flex-direction: row;
-      align-items: center ;
+      align-items: center;
       gap: 10vw;
       font-size: 3vh;
+      margin-left: 50px;
     }
 
     img {
       height: 100vh;
+    }
+
+    #viewTimelapse {
+      height: 7vh;
+      width: 100%;
+      font-size: 3vh;
+      margin: 10px;
+      background-color: pink;
+      cursor: pointer;
+      border-radius: 6px;
+      border-width: 2px;
+      border-style: dashed;
+    }
+
+    label {
+      border: 30px;
+    }
+
+    .form-check {
+      border-style: dashed;
+      border-width: 2px;
+      margin: 10px;
+      border-radius: 6px;
+      width: 100%;
+      background-color: pink;
+      cursor: pointer;
+    }
+
+    body {
+      background-color: aquamarine;
     }
   </style>
 </head>
@@ -35,7 +66,7 @@
         <input class="form-check-input" type="radio" name="timeSpan" id="AllTime" value="All Time">
         <label class="form-check-label" for="AllTime">All Time</label>
       </div>
-      <button type="button" class="btn btn-success" id="viewTimelapse">View Timelapse</button>
+      <button type="button" id="viewTimelapse">View Timelapse</button>
     </div>
 
 
