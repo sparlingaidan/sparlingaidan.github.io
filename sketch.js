@@ -1,62 +1,46 @@
-const imgWidth = 3280;
-const imgHeight = 2464;
-let len;
-let imgs = [];
-let currentImg = 0;
-let pHs = [];
-let canopyTemps = [];
-let waterTemps = [];
+fetch('len.txt')  // Replace with your actual file path
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.text();
+  })
+  .then(text => {
+    Latest = text.length - 1;
+    let img = document.getElementById('curimg');
+    img.src = "./pic/" + Latest.toString() + ".jpg";
+    imgdiv.appendChild(img);
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
 
-function preload(){
-  len = loadStrings('/len.txt');
-}
+document.getElementById('viewTimelapse').addEventListener('click', () => {
+  // Get selected radio button value
+  const selected = document.querySelector('input[name="timeSpan"]:checked');
 
-function setup() {
-  createCanvas(imgWidth, imgHeight);
-  let fileName = ''
-  for(i = 0; i < len[0].length; i ++){
-    fileName = 'pic/' + str(i) + '.jpg';
-    temp = loadImage(fileName);
-    imgs.push(temp);
+  if (selected.value == "Week") {
+    Timelapse(7);
+  } else if (selected.value == "Month") {
+    Timelapse(31);
+  } else if (selected) {
+    Timelapse(Latest);
+  } else {
+    alert('Please select a time span first.');
   }
-  currentImg = len[0].length -1;
-  console.log(fileName);
+});
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function Timelapse(duration) {
+  let img = document.getElementById('curimg');
+  let start = Latest - duration;
 
-function drawPlay(){
-  fill('pink');
-  rect(imgWidth - 60, 10, 50, 27);
-  stroke('black');
-  textSize(21);
-  text("Play", imgWidth - 57, 29);
-  textSize(10);
-}
-
-function draw() {
-  background('pink');
-  image(imgs[currentImg], 0, 0);
-  drawPlay();
-  updateAll();
-}
-
-function touchEnded() {
-  if((mouseX > 570) & (mouseY < 50)){
-    currentImg = 0;
+  while (start <= Latest) {
+    img.src = "./pic/" + start.toString() + ".jpg";
+    console.log("showing:", img.src);
+    await wait(100);
+    start += 1;
   }
 }
 
-function mouseClicked() {
-  if((mouseX > 570) & (mouseY < 50)){
-    currentImg = 0;
-  }
-}
-
-function updateAll(){
-  if (frameCount % 25 == 0){
-    currentImg ++;
-  }
-  if (currentImg >= len[0].length ){
-    currentImg = len[0].length -1;
-  }
-}

@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    #imgdiv {
+      display: flex;
+      flex-direction: row;
+      align-items: center ;
+      gap: 10vw;
+      font-size: 3vh;
+    }
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    img {
+      height: 100vh;
+    }
+  </style>
+</head>
 
-    <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
-  </head>
+<body>
+  <div id="imgdiv">
+    <img id="curimg">
 
-  <body>
-    <script src="sketch.js"></script>
-  </body>
+    <div class="Time-span">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="timeSpan" id="Week" value="Week">
+        <label class="form-check-label" for="Week">Week</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="timeSpan" id="Month" value="Month">
+        <label class="form-check-label" for="Month">Month</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="timeSpan" id="AllTime" value="All Time">
+        <label class="form-check-label" for="AllTime">All Time</label>
+      </div>
+      <button type="button" class="btn btn-success" id="viewTimelapse">View Timelapse</button>
+    </div>
+
+
+  </div>
+
+  <script src="sketch.js"></script>
+
+</body>
+
 </html>
